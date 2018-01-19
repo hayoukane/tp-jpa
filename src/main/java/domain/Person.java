@@ -4,7 +4,8 @@ package domain;
 	import javax.persistence.Entity;
 	import javax.persistence.GeneratedValue;
 	import javax.persistence.Id;
-    import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 	@Entity
 	public class Person {
 		private Long id;
@@ -42,14 +43,14 @@ package domain;
 			this.name = name;
 		}
 		
-		@OneToMany 
+		@ManyToOne
 		public Home getHome() {
 			return home;
 		}
 		public void setHome(Home home) {
 			this.home = home;
 		}
-		@OneToMany
+		@ManyToOne
 		public ElectronicDevice getElectronicdevice() {
 			return electronicdevice;
 		}

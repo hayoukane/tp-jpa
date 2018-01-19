@@ -9,7 +9,8 @@ import java.util.ArrayList;
 	import javax.persistence.Entity;
 	import javax.persistence.GeneratedValue;
 	import javax.persistence.Id;
-	import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 	@Entity
 	public class Heater {
 		private Long id;
@@ -35,7 +36,8 @@ import java.util.ArrayList;
 		public void setName(String name) {
 			this.name = name;
 		}
-		@OneToMany(mappedBy = "heater", cascade = CascadeType.PERSIST)
+		@OneToMany(cascade = CascadeType.PERSIST)
+		@JoinColumn(name="heaterid")
 		public List<Home> getHome() {
 			return home;
 		}
